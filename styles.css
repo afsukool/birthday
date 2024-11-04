@@ -19,10 +19,12 @@
     width: 200px;
 }
 
-.show-name-btn {
+.show-name-btn,
+.new-name-btn,
+.celebrate-btn {
     padding: 10px 15px;
     font-size: 1rem;
-    margin-left: 10px;
+    margin: 5px;
     background-color: #00732F;
     color: #fff;
     border: none;
@@ -30,7 +32,9 @@
     cursor: pointer;
 }
 
-.show-name-btn:hover {
+.show-name-btn:hover,
+.new-name-btn:hover,
+.celebrate-btn:hover {
     background-color: #005f26;
 }
 
@@ -44,18 +48,4 @@
     font-size: 1.5rem;
     color: #00732F;
     margin-bottom: 20px;
-}
-
-.celebrate-btn {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background-color: #ff5733;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.celebrate-btn:hover {
-    background-color: #c4412d;
 }
