@@ -1,5 +1,23 @@
+document.getElementById('showNameBtn').addEventListener('click', function() {
+    const nameInput = document.getElementById('nameInput').value.trim();
+    if (nameInput) {
+        const birthdayName = document.getElementById('birthdayName');
+        birthdayName.textContent = `Happy Birthday, ${nameInput}!`;
+        birthdayName.style.display = 'block';
+        
+        const birthdayWish = document.getElementById('birthdayWish');
+        birthdayWish.style.display = 'block';
+        
+        const celebrateBtn = document.getElementById('celebrateBtn');
+        celebrateBtn.style.display = 'inline-block';
+    } else {
+        alert('Please enter your name!');
+    }
+});
+
 document.getElementById('celebrateBtn').addEventListener('click', function() {
-    alert("Let's celebrate!");
+    const music = document.getElementById('birthdayMusic');
+    music.play();
     generateConfetti();
 });
 
@@ -16,21 +34,3 @@ function generateConfetti() {
         setTimeout(() => confetti.remove(), 2000);
     }
 }
-
-// CSS for confetti
-const confettiStyle = document.createElement('style');
-confettiStyle.innerHTML = `
-.confetti {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    animation: fall 2s linear infinite;
-}
-
-@keyframes fall {
-    0% { transform: translateY(0) rotate(0); }
-    100% { transform: translateY(100vh) rotate(720deg); }
-}
-`;
-document.head.appendChild(confettiStyle);
