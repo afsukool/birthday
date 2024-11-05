@@ -50,6 +50,7 @@ document.getElementById('newNameBtn').addEventListener('click', function() {
     document.getElementById('newNameBtn').style.display = 'none';
 });
 
+// Function to generate fireworks
 function generateFireworks() {
     const container = document.getElementById('fireworksContainer');
     for (let i = 0; i < 5; i++) {
@@ -60,17 +61,17 @@ function generateFireworks() {
         for (let j = 0; j < 20; j++) {
             const spark = document.createElement('div');
             spark.classList.add('spark');
-            
+
             // Set a random color for each spark
             const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
             spark.style.backgroundColor = randomColor;
-            
+
+            // Randomize position and direction of each spark
             const angle = Math.random() * 360;
             const distance = Math.random() * 100 + 50;
             spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
             spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
-
-            // Append spark to firework container
+            
             fireworkContainer.appendChild(spark);
         }
 
@@ -82,3 +83,6 @@ function generateFireworks() {
         setTimeout(() => fireworkContainer.remove(), 2000); // Remove fireworks after 2 seconds
     }
 }
+
+
+       
