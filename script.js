@@ -75,7 +75,7 @@ function generateFireworks() {
 
             // Set random direction and distance for bursting effect
             const angle = Math.random() * 360;
-            const distance = Math.random() * 100 + 50; // distance for explosion
+            const distance = Math.random() * 100 + 100; // distance for explosion
             spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
             spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
 
@@ -83,7 +83,7 @@ function generateFireworks() {
         }
 
         container.appendChild(fireworkContainer);
-        setTimeout(() => fireworkContainer.remove(), 2000); // Remove fireworks after 2 seconds
+        setTimeout(() => fireworkContainer.remove(), 5000); // Remove fireworks after 2 seconds
     }
 }
 
