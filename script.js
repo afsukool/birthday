@@ -76,3 +76,30 @@ function generateFireworks() {
         setTimeout(() => fireworkContainer.remove(), 2000); // Remove fireworks after 2 seconds
     }
 }
+// Function to generate fireworks
+function generateFireworks() {
+    const container = document.getElementById('fireworksContainer');
+    for (let i = 0; i < 5; i++) {
+        const fireworkContainer = document.createElement('div');
+        fireworkContainer.classList.add('firework-container');
+
+        // Generate sparks
+        for (let j = 0; j < 20; j++) {
+            const spark = document.createElement('div');
+            spark.classList.add('spark');
+            const angle = Math.random() * 360;
+            const distance = Math.random() * 100 + 50;
+            spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
+            spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+            fireworkContainer.appendChild(spark);
+        }
+
+        // Set random position for the fireworks
+        fireworkContainer.style.left = `${Math.random() * 100}vw`;
+        fireworkContainer.style.top = `${Math.random() * 60}vh`;
+
+        container.appendChild(fireworkContainer);
+        setTimeout(() => fireworkContainer.remove(), 2000); // Remove fireworks after 2 seconds
+    }
+}
+
