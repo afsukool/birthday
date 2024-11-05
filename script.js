@@ -53,9 +53,16 @@ document.getElementById('newNameBtn').addEventListener('click', function() {
 // Function to generate fireworks
 function generateFireworks() {
     const container = document.getElementById('fireworksContainer');
+    
+    // Random position for the firework explosion
+    const fireworkX = Math.random() * 100; // percentage for left position
+    const fireworkY = Math.random() * 100; // percentage for top position
+
     for (let i = 0; i < 5; i++) {
         const fireworkContainer = document.createElement('div');
         fireworkContainer.classList.add('firework-container');
+        fireworkContainer.style.left = `${fireworkX}vw`;
+        fireworkContainer.style.top = `${fireworkY}vh`;
 
         // Generate sparks
         for (let j = 0; j < 20; j++) {
@@ -66,23 +73,18 @@ function generateFireworks() {
             const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
             spark.style.backgroundColor = randomColor;
 
-            // Randomize position and direction of each spark
+            // Set random direction and distance for bursting effect
             const angle = Math.random() * 360;
-            const distance = Math.random() * 100 + 50;
+            const distance = Math.random() * 100 + 50; // distance for explosion
             spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
             spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
-            
+
             fireworkContainer.appendChild(spark);
         }
-
-        // Set random position for the fireworks
-        fireworkContainer.style.left = `${Math.random() * 100}vw`;
-        fireworkContainer.style.top = `${Math.random() * 60}vh`;
 
         container.appendChild(fireworkContainer);
         setTimeout(() => fireworkContainer.remove(), 2000); // Remove fireworks after 2 seconds
     }
 }
-
 
        
