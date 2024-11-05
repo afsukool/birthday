@@ -26,7 +26,11 @@ document.getElementById('showNameBtn').addEventListener('click', function() {
     if (name) {
         document.getElementById('birthdayName').textContent = `Happy Birthday, ${name}!`;
         document.getElementById('birthdayName').style.display = 'block';
-        document.getElementById('birthdayWish').textContent = "Wishing you a fantastic year ahead!";
+        
+        // Pick a random birthday message
+        const randomMessage = birthdayMessages[Math.floor(Math.random() * birthdayMessages.length)];
+        document.getElementById('birthdayWish').textContent = randomMessage;
+        
         document.getElementById('birthdayWish').style.display = 'block';
         document.getElementById('celebrateBtn').style.display = 'inline-block';
         document.getElementById('newNameBtn').style.display = 'inline-block';
