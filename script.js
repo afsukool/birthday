@@ -55,3 +55,13 @@ function generateConfetti() {
         setTimeout(() => confetti.remove(), 2000);
     }
 }
+document.getElementById('celebrateBtn').addEventListener('click', function() {
+    document.getElementById('celebrateMessage').style.display = 'block';
+    document.getElementById('birthdayMusic').play();
+    generateConfetti();
+
+    // Trigger multiple fireworks with delay
+    for (let i = 0; i < 5; i++) {
+        setTimeout(generateFirework, i * 500);  // Fireworks every 0.5 seconds
+    }
+});
