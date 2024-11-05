@@ -63,37 +63,15 @@
     text-shadow: 1px 1px #b8e994;
 }
 
-/* Firework Spark Styling */
-.spark {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background-color: yellow;
-    border-radius: 50%;
-    opacity: 1;
-    animation: explode 1.5s ease-out forwards;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Spark glow effect */
-}
-
-@keyframes explode {
-    0% {
-        transform: scale(0.5);
-        opacity: 1;
-    }
-    50% {
-        transform: translate(var(--x), var(--y)) scale(1);
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translate(var(--x), var(--y)) scale(0.3);
-    }
-}
 /* Firework Container */
-.firework-container {
-    position: absolute;
+#fireworksContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
-    z-index: 1;
+    z-index: 10; /* Ensures it’s above other content */
 }
 
 /* Firework Spark Styling */
@@ -101,31 +79,23 @@
     position: absolute;
     width: 6px;
     height: 6px;
-    background-color: yellow;
     border-radius: 50%;
-    animation: explode 1s ease-out forwards;
+    animation: explode 1.5s ease-out forwards;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Spark glow effect */
 }
 
+/* Firework Explosion Animation */
 @keyframes explode {
     0% {
         transform: scale(0.5);
         opacity: 1;
     }
     50% {
-        transform: translate(var(--x), var(--y)) scale(1);
+        transform: translate(var(--x), var(--y)) rotate(45deg) scale(1.2);
         opacity: 1;
     }
     100% {
+        transform: translate(var(--x), var(--y)) rotate(90deg) scale(0.3);
         opacity: 0;
-        transform: translate(var(--x), var(--y)) scale(0.3);
     }
-}
-#fireworksContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; /* Prevents interference with clicks */
-    z-index: 10; /* Ensures it’s above other content */
 }
