@@ -89,3 +89,34 @@
         transform: translate(var(--x), var(--y)) scale(0.3);
     }
 }
+/* Firework Container */
+.firework-container {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Firework Spark Styling */
+.spark {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: yellow;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--x), var(--y)) scale(1);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0.3);
+    }
+}
