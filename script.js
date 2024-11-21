@@ -22,7 +22,7 @@ const birthdayMessages = [
 ];
 
 document.getElementById('showNameBtn').addEventListener('click', function() {
-    const name = "Malu"; // Hardcoded name
+    const name = "Dua"; // Hardcoded name
     document.getElementById('birthdayName').textContent = `Happy Birthday, ${name}!`;
     document.getElementById('birthdayName').style.display = 'block';
     
