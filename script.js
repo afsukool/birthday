@@ -22,19 +22,17 @@ const birthdayMessages = [
 ];
 
 document.getElementById('showNameBtn').addEventListener('click', function() {
-    const name = Malu;
-    if (name) {
-        document.getElementById('birthdayName').textContent = `Happy Birthday, ${name}!`;
-        document.getElementById('birthdayName').style.display = 'block';
-        
-        // Pick a random birthday message
-        const randomMessage = birthdayMessages[Math.floor(Math.random() * birthdayMessages.length)];
-        document.getElementById('birthdayWish').textContent = randomMessage;
-        
-        document.getElementById('birthdayWish').style.display = 'block';
-        document.getElementById('celebrateBtn').style.display = 'inline-block';
-        document.getElementById('newNameBtn').style.display = 'inline-block';
-    }
+    const name = "Malu"; // Hardcoded name
+    document.getElementById('birthdayName').textContent = `Happy Birthday, ${name}!`;
+    document.getElementById('birthdayName').style.display = 'block';
+    
+    // Pick a random birthday message
+    const randomMessage = birthdayMessages[Math.floor(Math.random() * birthdayMessages.length)];
+    document.getElementById('birthdayWish').textContent = randomMessage;
+    document.getElementById('birthdayWish').style.display = 'block';
+
+    document.getElementById('celebrateBtn').style.display = 'inline-block';
+    document.getElementById('newNameBtn').style.display = 'inline-block';
 });
 
 document.getElementById('celebrateBtn').addEventListener('click', function() {
@@ -43,7 +41,6 @@ document.getElementById('celebrateBtn').addEventListener('click', function() {
 });
 
 document.getElementById('newNameBtn').addEventListener('click', function() {
-    document.getElementById('nameInput').value = '';
     document.getElementById('birthdayName').style.display = 'none';
     document.getElementById('birthdayWish').style.display = 'none';
     document.getElementById('celebrateBtn').style.display = 'none';
@@ -53,10 +50,8 @@ document.getElementById('newNameBtn').addEventListener('click', function() {
 // Function to generate fireworks
 function generateFireworks() {
     const container = document.getElementById('fireworksContainer');
-    
-    // Random position for the firework explosion
-    const fireworkX = Math.random() * 100; // percentage for left position
-    const fireworkY = Math.random() * 100; // percentage for top position
+    const fireworkX = Math.random() * 100;
+    const fireworkY = Math.random() * 100;
 
     for (let i = 0; i < 5; i++) {
         const fireworkContainer = document.createElement('div');
@@ -64,18 +59,14 @@ function generateFireworks() {
         fireworkContainer.style.left = `${fireworkX}vw`;
         fireworkContainer.style.top = `${fireworkY}vh`;
 
-        // Generate sparks
         for (let j = 0; j < 20; j++) {
             const spark = document.createElement('div');
             spark.classList.add('spark');
-
-            // Set a random color for each spark
             const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
             spark.style.backgroundColor = randomColor;
 
-            // Set random direction and distance for bursting effect
             const angle = Math.random() * 360;
-            const distance = Math.random() * 100 + 200; // distance for explosion
+            const distance = Math.random() * 100 + 200;
             spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
             spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
 
@@ -83,8 +74,6 @@ function generateFireworks() {
         }
 
         container.appendChild(fireworkContainer);
-        setTimeout(() => fireworkContainer.remove(), 8000); // Remove fireworks after 2 seconds
+        setTimeout(() => fireworkContainer.remove(), 8000);
     }
 }
-
-       
