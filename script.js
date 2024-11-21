@@ -22,7 +22,7 @@ const birthdayMessages = [
 ];
 
 document.getElementById('showNameBtn').addEventListener('click', function() {
-    const name = document.getElementById('nameInput').value;
+    const name = Malu;
     if (name) {
         document.getElementById('birthdayName').textContent = `Happy Birthday, ${name}!`;
         document.getElementById('birthdayName').style.display = 'block';
